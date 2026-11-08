@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "accounts",
     "forum",
     "editor",
+    "chat",
 ]
 AUTH_USER_MODEL = "accounts.User"
 MIDDLEWARE = [

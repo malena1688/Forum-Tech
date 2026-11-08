@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat con {{ other.username }}</title>
+</head>
+<body>
+  <a href="{% url 'chat:inbox' %}">&larr; Volver a mis mensajes</a>
+  <h1>Chat con {{ other.username }}</h1>
+
+  {% if messages %}
+    <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  <div>
+    {% for msg in chat_messages %}
+      <p>
+        <strong>{{ msg.sender.username }}</strong>
+        <small>{{ msg.created_at|date:"d/m/Y H:i" }}</small><br>
+        {{ msg.text }}
+      </p>
+    {% empty %}
+      <p>No hay mensajes todavía. ¡Escribe el primero!</p>
+    {% endfor %}
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <textarea name="text" rows="3" maxlength="1000" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
