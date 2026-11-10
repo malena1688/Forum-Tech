@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Mis mensajes</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Mis mensajes{% endblock %}
+
+{% block content %}
   <h1>Mis mensajes</h1>
 
   {% if messages %}
@@ -15,6 +13,29 @@
     </ul>
   {% endif %}
 
+  <h2>Escribir a alguien</h2>
+  <form method="get" action="{% url 'chat:inbox' %}">
+    <label for="q">Buscar usuario</label>
+    <input type="text" id="q" name="q" value="{{ q }}" placeholder="Nombre de usuario">
+    <button type="submit">Buscar</button>
+  </form>
+
+  {% if q %}
+    {% if results %}
+      <ul>
+        {% for u in results %}
+          <li>
+            {{ u.username }}
+            <a href="{% url 'chat:start' u.pk %}">Escribir</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No hay ningún usuario que coincida con «{{ q }}».</p>
+    {% endif %}
+  {% endif %}
+
+  <h2>Mis conversaciones</h2>
   {% if items %}
     <ul>
       {% for item in items %}
@@ -29,5 +50,4 @@
   {% else %}
     <p>Todavía no tienes conversaciones.</p>
   {% endif %}
-</body>
-</html>
+{% endblock %}

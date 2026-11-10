@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.db.models import Count, Q
 from django.shortcuts import get_object_or_404, redirect, render
-
+from django.contrib.auth import get_user_model
 from .models import Conversation
 from .services import get_or_create_conversation, mark_messages_as_read, send_message
 
@@ -37,7 +37,20 @@ def inbox(request):
             }
         )
 
-    return render(request, "chat/inbox.html", {"items": items})
+    q = request.GET.get("q", "").strip()
+    results = []
+    if q:
+        results = (
+            get_user_model()
+            .objects.filter(username__icontains=q, is_active=True)
+            .exclude(pk=request.user.pk)[:10]
+        )
+
+    return render(
+        request,
+        "chat/inbox.html",
+        {"items": items, "q": q, "results": results},
+    )
 
 
 @login_required
