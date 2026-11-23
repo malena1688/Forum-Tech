@@ -1803,3 +1803,100 @@ body>aside[aria-label="Notificaciones en tiempo real"] .ft-icon {
     }
 
 }
+
+/* ==========================================
+   FORMULARIO DE REGISTRO — FORUM TECH
+   ========================================== */
+
+main form:has(input[name="username"]) {
+    width: 100%;
+    max-width: 680px;
+    margin: 25px auto;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    background: #FFFFFF;
+    border: 1px solid var(--ft-border);
+    border-radius: 15px;
+    box-shadow: var(--ft-shadow);
+}
+
+/* Cada campo ocupa una fila */
+main form:has(input[name="username"]) p {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 7px;
+    width: 100%;
+    margin: 0;
+}
+
+/* Etiquetas */
+main form:has(input[name="username"]) label {
+    display: block;
+    width: 100%;
+    color: var(--ft-navy);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Campos de entrada */
+main form:has(input[name="username"]) input:not([type="checkbox"]),
+main form:has(input[name="username"]) select,
+main form:has(input[name="username"]) textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 11px 13px;
+    border: 1px solid var(--ft-border-strong);
+    border-radius: 8px;
+    background: #FFFFFF;
+    font: 14px var(--ft-font);
+    box-sizing: border-box;
+}
+
+/* Ayudas y errores debajo de cada campo */
+main form:has(input[name="username"]) .helptext,
+main form:has(input[name="username"]) .help-text,
+main form:has(input[name="username"]) ul {
+    display: block;
+    width: 100%;
+    margin: 4px 0 0;
+    padding-left: 20px;
+    color: var(--ft-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* Botón de registro */
+main form:has(input[name="username"]) button[type="submit"] {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 8px;
+    border-radius: 9px;
+    font-size: 15px;
+}
+
+/* Adaptación móvil */
+@media (max-width: 760px) {
+    main form:has(input[name="username"]) {
+        width: 100%;
+        padding: 18px 15px;
+        margin: 18px auto;
+        gap: 12px;
+    }
+
+    main form:has(input[name="username"]) label {
+        font-size: 13px;
+    }
+
+    main form:has(input[name="username"]) input:not([type="checkbox"]),
+    main form:has(input[name="username"]) select,
+    main form:has(input[name="username"]) textarea {
+        min-height: 44px;
+        font-size: 16px;
+    }
+}
