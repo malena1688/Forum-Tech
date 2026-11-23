@@ -200,7 +200,7 @@ h1 {
 
     margin: 0 0 22px;
 
-    font-size: clamp(28px, 3vw, 36px);
+    font-size: 25px;
 
 }
 
@@ -220,7 +220,7 @@ h2 {
 }
 
 .help-section h2 {
-    font-size: 28px;
+    font-size: 25px;
     margin-top: 0;
     margin-bottom: 18px;
 }
@@ -253,7 +253,7 @@ h2 {
     border-radius: 20px;
     text-decoration: none;
 
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 600;
 
     transition: background-color 0.3s ease;
@@ -282,14 +282,14 @@ h2 {
 }
 
 .did-you-know h2 {
-    font-size: 28px;
+    font-size: 23px;
     font-weight: 600;
     margin: 0 0 18px 0;
 }
 
 .did-you-know p {
     color: #d1d3d9;
-    font-size: 21px;
+    font-size: 23px;
     line-height: 1.5;
     margin: 0;
 }
@@ -1573,7 +1573,7 @@ main>form .ft-clear-filters {
 
     main h1 {
 
-        font-size: 23px;
+        font-size: 18px;
 
     }
 
@@ -1581,7 +1581,7 @@ main>form .ft-clear-filters {
 
     main nav[aria-label="Feeds"] strong {
 
-        font-size: 11px;
+        font-size: 10px;
 
         padding: 6px;
 
@@ -1640,7 +1640,7 @@ body>header.ft-header {
 
 .ft-header .ft-brand-text {
     color: #ffffff;
-    font-size: 66px;
+    font-size: 38px;
     font-weight: 700;
     line-height: 1.1;
 }
@@ -1758,105 +1758,48 @@ body>aside[aria-label="Notificaciones en tiempo real"] .ft-icon {
     flex: 0 0 18px;
 }
 
-/* Tabletas */
-@media (max-width: 1100px) {
-    .ft-header .ft-brand-text {
-        font-size: 48px;
-    }
 
-    .ft-header .ft-brand-icon {
-        width: 68px;
-        height: 68px;
-    }
+/* ==========================================
+   MENÚ VERTICAL EXCLUSIVO PARA MÓVILES
+   ========================================== */
 
-    .ft-header .ft-brand-code {
-        width: 54px;
-        height: 54px;
-    }
-
-    .ft-header .ft-nav-links {
-        gap: 18px;
-    }
-
-    .ft-header .ft-nav-links>a,
-    .ft-header .ft-nav-links>form button {
-        font-size: 16px;
-    }
-
-    .ft-header .ft-nav-links .ft-icon {
-        flex-basis: 24px;
-        width: 24px;
-        height: 24px;
-    }
-}
-
-/* MÃ³viles: el menÃº no salta de lÃ­nea; se puede deslizar si no cabe. */
 @media (max-width: 760px) {
-    body>header.ft-header {
-        gap: 18px;
-        padding: 18px 12px 16px;
-    }
-
-    .ft-header .ft-brand {
-        gap: 9px;
-    }
-
-    .ft-header .ft-brand-text {
-        font-size: 31px;
-    }
-
-    .ft-header .ft-brand-icon {
-        width: 44px;
-        height: 44px;
-    }
-
-    .ft-header .ft-brand-code {
-        width: 34px;
-        height: 34px;
-    }
 
     .ft-header .ft-nav-links {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
         justify-content: center;
-        gap: 14px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        padding: 2px 2px 8px;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: thin;
+        gap: 5px;
+        width: 100%;
+        overflow: visible;
+        padding: 5px 12px;
     }
 
     .ft-header .ft-nav-links>a {
-        gap: 5px;
-        padding: 7px 2px;
-        font-size: 13px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        padding: 9px 12px;
+        font-size: 15px;
+        white-space: normal;
     }
 
-    .ft-header .ft-nav-links .ft-icon {
-        flex-basis: 19px;
-        width: 19px;
-        height: 19px;
+    .ft-header .ft-nav-links>form {
+        display: flex;
+        width: 100%;
     }
 
     .ft-header .ft-nav-links>form button {
-        gap: 5px;
-        min-height: 34px;
-        padding: 7px 9px;
-        font-size: 13px;
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 9px 12px;
+        font-size: 15px;
     }
 
-    body>aside[aria-label="Notificaciones en tiempo real"],
-    body>aside[aria-label="Notificaciones en tiempo real"] a {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 400px) {
-    .ft-header .ft-nav-links {
-        gap: 16px;
-    }
-
-    .ft-header .ft-nav-links>a,
-    .ft-header .ft-nav-links>form button {
-        font-size: 12px;
-    }
 }
